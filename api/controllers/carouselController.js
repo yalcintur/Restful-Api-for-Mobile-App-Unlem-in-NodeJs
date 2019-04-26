@@ -43,7 +43,7 @@ exports.update_a_carousel = function(req, res) {
 
 
 exports.delete_a_carousel = function(req, res) {
-  Dergi.remove({
+  Carousel.remove({
     _id: req.params.carouselId
   }, function(err, carousel) {
     if (err)

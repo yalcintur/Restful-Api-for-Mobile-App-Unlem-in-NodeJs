@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 
 exports.register = function(req, res) {
 
-    var email = req.body.email;
+    var email = req.params.email;
     var password = generatePassword(6,false);
     var new_user= new User();
 
@@ -46,10 +46,14 @@ exports.register = function(req, res) {
 
 exports.login = function(req,res) {
 
-    var password = req.body.password;
+    var password = req.params.password;
 
-    var email = req.body.email;
+    var email = req.params.email;
 
+    console.log(password);
+
+    console.log(email);
+    
     User.findOne({password : password ,email : email}, function (err, user) {
 
         if (err)

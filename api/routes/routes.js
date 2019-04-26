@@ -61,10 +61,10 @@ module.exports = function(app) {
   app.route('/videolar/:videoId/:videoNo')
     .get(videoList.read_a_video);
      // Login - Register
-    app.route('/register')
-    .post(userList.register);
+    app.route('/register/:email')
+    .get(userList.register);
 
-    app.route('/login')
+    app.route('/login/:email/:password')
     .get(userList.login);
 
     app.route('/delete')
